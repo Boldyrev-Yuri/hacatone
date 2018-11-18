@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import localforage from 'localforage';
 
 class Register extends Component {
 

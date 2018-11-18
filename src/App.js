@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import Register from './components/Register';
 import Login from './components/Login';
+import Logout from './components/Logout';
 import localforage from 'localforage';
 
 /*
@@ -84,6 +85,22 @@ class App extends Component {
     //console.log(localforage.getItem(user.name));
   }
 
+  handleSubmitLogout(name) {
+    localforage.getItem(name)
+    .then((value) => {
+      this.setState({
+            name: '',
+            password: '',
+            isAdmin: '',
+            isAuth: false
+        });
+        console.log(this.state);
+    })
+    .catch((err) => {
+      alert('Такого пользователя не существует');
+    });
+  }
+
   render() {
     return (
       <div className="App">
@@ -106,6 +123,16 @@ class App extends Component {
                 isAuth={this.state.isAuth}
                 handleInputChange = {e => this.handleInputChange(e)}
                 handleSubmit = {e => this.handleSubmitLogin(e)}
+                />
+               </div>
+          }
+          {
+            this.state.isAuth &&
+            <div>
+              <Logout 
+                name={this.state.name} 
+                isAuth={this.state.isAuth}
+                handleSubmit = {e => this.handleSubmitLogout(e)}
                 />
                </div>
           }
