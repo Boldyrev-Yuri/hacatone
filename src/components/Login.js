@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import Button from '@material-ui/core/Button';
+import Input from '@material-ui/core/Input';
 
 class Login extends Component {
   constructor() {
@@ -33,11 +35,11 @@ class Login extends Component {
       return <div/>;
     } 
     else return(
-        <div className="container">
+        <div className="container inline">
             <h2>Вход</h2>
             <form>
                 <div className="form-group">
-                    <input
+                    <Input
                     type="text"
                     placeholder="Имя"
                     className='form-control form-control-lg'
@@ -45,9 +47,10 @@ class Login extends Component {
                     onChange={ e => this.handleInputChange(e) }
                     value={ this.state.name }
                     />
+
                 </div>
                 <div className="form-group">
-                    <input
+                    <Input
                     type="password"
                     placeholder="Пароль"
                     className='form-control form-control-lg'
@@ -56,12 +59,16 @@ class Login extends Component {
                     value={ this.state.password }
                     />
                 </div>
-                <div className="form-group">
-                    <button type="button" 
+                <div className="form-group div-marging">
+                    <Button 
+                    variant="contained" 
+                    color="primary"
+                    type="button" 
                     onClick={e => this.handleSubmit(e)}
-                    className="btn btn-primary" >
+                    className="btn btn-primary"
+                    >
                         Войти
-                    </button>
+                    </Button>
                 </div>
             </form>
         </div>

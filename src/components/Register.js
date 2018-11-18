@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import Button from '@material-ui/core/Button';
+import Input from '@material-ui/core/Input';
+import Checkbox from '@material-ui/core/Checkbox';
 
 class Register extends Component {
 
@@ -11,7 +14,7 @@ class Register extends Component {
             <h2>Регистрация</h2>
             <form>
                 <div className="form-group">
-                    <input
+                    <Input
                     type="text"
                     placeholder="Имя"
                     className='form-control form-control-lg'
@@ -21,7 +24,7 @@ class Register extends Component {
                     />
                 </div>
                 <div className="form-group">
-                    <input
+                    <Input
                     type="password"
                     placeholder="Пароль"
                     className='form-control form-control-lg'
@@ -31,7 +34,7 @@ class Register extends Component {
                     />
                 </div>
                 <div>
-                  <input 
+                  <Checkbox
                   id="checkbox"
                   type="checkbox"
                   name="isAdmin"
@@ -41,11 +44,15 @@ class Register extends Component {
                   <label for="checkbox">Руководитель</label>
                 </div>
                 <div className="form-group">
-                    <button type="button" 
-                    onClick={ e => this.props.handleSubmit(e) } 
-                    className="btn btn-primary" >
+                    <Button 
+                    variant="contained" 
+                    color="primary"
+                    type="button" 
+                    onClick={e => this.handleSubmit(e)}
+                    className="btn btn-primary "
+                    >
                         Зарегистрировать
-                    </button>
+                    </Button>
                 </div>
             </form>
         </div>

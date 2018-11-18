@@ -30,3 +30,13 @@
     transform: rotate(360deg);
   }
 }
+
+.div-marging {
+  margin-top: 5px;
+}
+
+div.inline { 
+  display: inline 
+}
+
+.clearBoth { clear:both; }
